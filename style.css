@@ -1,0 +1,340 @@
+/* Общие стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    font-family: "Poppins", sans-serif;
+}
+
+:root {
+    --bg-color: #9de6aa;
+    --second-bg-color: rgba(13, 141, 240, 0.6);
+    --blye-color: rgba(13, 141, 240);
+    --text-color: white;
+    --main-color: #9de6aa;
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+}
+
+body {
+    background-image: url('image/blue_gradient_background-wallpaper-5120x3200.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: var(--text-color);
+}
+
+/* Header */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem 9%;
+    background: var(--second-bg-color);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 3rem;
+    color: var(--text-color);
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.logo:hover {
+    transform: scale(1.1);
+}
+
+.logo span {
+    color: var(--bg-color);
+}
+
+.navbar {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.navbar a {
+    font-size: 1.8rem;
+    color: white;
+    margin-left: 4rem;
+    font-weight: 500;
+    transition: 0.3s ease-in-out;
+    border-bottom: 3px solid transparent;
+}
+
+.navbar a:hover,
+.navbar a:active {
+    color: var(--main-color);
+    border-bottom: 3px solid var(--main-color);
+}
+
+#menu-icon {
+    font-size: 3.6rem;
+    color: var(--main-color);
+    display: none;
+    cursor: pointer;
+}
+
+/* Главная секция */
+section {
+    min-height: 100vh;
+    padding: 6rem 9% 10rem;
+}
+
+.home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+    padding-top: 8.2rem;
+    /* Высота header-а + небольшой дополнительный отступ */
+}
+
+/* Блок с изображением */
+.home-img-container {
+    position: relative;
+    display: inline-block;
+    transition: 0.4s ease-in-out;
+}
+
+.home-img {
+    width: 100%;
+    max-width: 500px;
+}
+
+.home-img-container img{
+    box-shadow: 0 0 50px white;
+    border-radius: 5%;
+   
+}
+
+.home-img-container:hover{
+    box-shadow: 0 0 150px white,
+    0 0 100px var(--second-bg-color);
+}
+
+/* Блок с текстом поверх изображения */
+.text-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: white;
+}
+
+.name {
+    position: absolute;
+    bottom: 270px;
+    left: 20px;
+    font-size: 60px;
+    font-weight: 800;
+    color: white;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.name span {
+    position: relative;
+    display: inline-block;
+}
+
+.name span::before {
+    content: ""; /* Отключаем текстовое содержание */
+    position: absolute;
+    top: 10px; /* Отступ от буквы "о" */
+    right: -10px; /* Отступ справа */
+    width: 40px;
+    height: 40px;
+    background-image: url('image/Vector\ 11.svg'); /* Подключаем изображение */
+    background-size: contain; /* Подгоняем изображение под контейнер */
+    background-repeat: no-repeat;
+}
+
+.name:hover {
+    color: var(--blye-color);
+    transition: color 0.3s ease-in-out;
+}
+
+.tutor {
+    position: absolute;
+    bottom: 220px;
+    left: 20px;
+    font-size: 20px;
+    font-weight: 800;
+    color: black;
+    background-color: var(--main-color);
+    padding: 5px 10px;
+    border-radius: 10px;
+    border: 1px solid #32CD32;
+    transform: rotate(-5deg);
+    transform-origin: 50% 50%; /* Центральная точка изображения */
+    animation: slideIn 2s ease-in-out;
+}
+
+.tutor:hover {
+    color: var(--blye-color);
+    transition: color 0.3s ease-in-out;
+}
+
+.description {
+    position: absolute;
+    bottom: 130px;
+    left: 20px;
+    max-width: 250px;
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
+    animation: fadeIn 2.5s ease-in-out;
+}
+
+.description:hover {
+    color: var(--main-color);
+    transition: color 0.3s ease-in-out;
+}
+
+.cta-button {
+    position: absolute;
+    bottom: 30px;
+    left: 6%;
+    width: 90%;
+    height: 70px;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    font-size: 30px;
+    text-align: center;
+    cursor: pointer;
+    animation: bounce 3s ease-in-out infinite;
+}
+
+.cta-button:hover {
+    background-color: #0056b3;
+    transition: background-color 0.3s ease-in-out;
+}
+
+/* Блок с языками */
+.language-options {
+    position: absolute;
+    top: 120px;
+    right: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.language {
+    margin: right;
+    /* Центрирование внутри родительского контейнера */
+    width: fit-content;
+    /* Ширина в зависимости от содержимого */
+    background-color: transparent;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 10px;
+    border: 1px solid white;
+    font-size: 16px;
+    text-align: center;
+}
+
+
+.language:hover {
+    background-color: #32CD32;
+    color: white;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+/* Анимации */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Адаптивное меню */
+@media (max-width: 991px) {
+    .header {
+        padding: 2rem 5%;
+    }
+
+    .navbar {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 50%;
+        padding: 2rem;
+        background: var(--second-bg-color);
+        display: none;
+        flex-direction: column;
+        gap: 2rem;
+        border-top-left-radius: 2rem;
+        border-bottom-left-radius: 2rem;
+    }
+
+    .navbar.active {
+        display: flex;
+    }
+
+    .navbar a {
+        color: white;
+        font-size: 2rem;
+        margin-left: 0;
+        border-bottom: none;
+    }
+
+    .navbar a:hover {
+        color: var(--main-color);
+        border-bottom: none;
+    }
+
+    #menu-icon {
+        display: block;
+    }
+}
+
+@media (max-width: 400px) {
+    .logo {
+        font-size: 2.5rem;
+    }
+}
