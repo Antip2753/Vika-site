@@ -1,0 +1,1741 @@
+<html>
+	<head>
+		<base href="/" />
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>English Tour Maldives - Viki's Globe Study</title>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+		/>
+		<!-- <link rel="stylesheet" href="/site2/style.css" /> -->
+		<link
+			href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Cormorant+Garamond:wght@400;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<style>
+			:root {
+				--primary: #002b56;
+				--secondary: #9fd8e7;
+				--accent: #ffc312;
+				--text: #d2edff;
+				--button: #ffc312;
+			}
+
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			body {
+				font-family: 'Playfair Display', serif;
+				line-height: 1.6;
+				background: linear-gradient(135deg, var(--primary), #004d99);
+				color: var(--text);
+				overflow-x: hidden;
+				position: relative;
+			}
+
+			.day-section .schedule-content,
+			.schedule-section .schedule-content {
+				width: 100%;
+				height: auto;
+				padding-bottom: 70px;
+			}
+
+			.one-days .one-days-content {
+				background: linear-gradient(rgba(0, 31, 63, 0.7), rgba(0, 31, 63, 0.7)),
+					url(/site2/img/one-days.jpg);
+				font-size: cover;
+				background-size: cover;
+				background-position: center;
+			}
+
+			.day-section .two-days-content {
+				background: linear-gradient(rgba(0, 31, 63, 0.7), rgba(0, 31, 63, 0.7)),
+					url(/site2/img/slider/4.jpg);
+				font-size: cover;
+				background-size: cover;
+				background-position: center;
+			}
+
+			.three-days .three-days-content {
+				background: linear-gradient(rgba(0, 31, 63, 0.7), rgba(0, 31, 63, 0.7)),
+					url(https://images.unsplash.com/photo-1506126613408-eca07ce68773?ixlib=rb-4.0.3);
+				font-size: cover;
+				background-size: cover;
+				background-position: center;
+			}
+
+			.day-section .four-days-content {
+				background: linear-gradient(rgba(0, 31, 63, 0.7), rgba(0, 31, 63, 0.7)),
+					url(/site2/img/four-days.jpg);
+				font-size: cover;
+				background-size: cover;
+				background-position: center;
+			}
+
+			.day-section .five-days-content {
+				background: linear-gradient(rgba(0, 31, 63, 0.7), rgba(0, 31, 63, 0.7)),
+					url(/site2/img/five-days.jpg);
+				font-size: cover;
+				background-size: cover;
+				background-position: center;
+			}
+
+			.day-section .six-days-content {
+				background: linear-gradient(rgba(0, 31, 63, 0.7), rgba(0, 31, 63, 0.7)),
+					url(/site2/img/six-days.jpg);
+				font-size: cover;
+				background-size: cover;
+				background-position: center;
+			}
+
+			.day-section .seven-days-content {
+				background: linear-gradient(rgba(0, 31, 63, 0.7), rgba(0, 31, 63, 0.7)),
+					url(/site2/img/seven-days.jpg);
+				font-size: cover;
+				background-size: cover;
+				background-position: center;
+			}
+
+			.close-button {
+				position: fixed;
+				top: 20px;
+				right: 20px;
+				width: 80px;
+				height: 80px;
+				background: rgba(255, 255, 255, 0.2);
+				border-radius: 50%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				cursor: pointer;
+				transition: all 0.3s ease;
+				backdrop-filter: blur(5px);
+				z-index: 1000;
+				text-decoration: none;
+			}
+
+			.close-button:hover {
+				background: rgba(255, 255, 255, 0.3);
+				transform: rotate(90deg);
+			}
+
+			.close-button::before {
+				transform: rotate(45deg);
+			}
+
+			.close-button::before,
+			.close-button::after {
+				content: '';
+				position: absolute;
+				width: 40px;
+				height: 4px;
+				background: var(--text);
+				transition: all 0.3s ease;
+			}
+
+			.close-button::after {
+				transform: rotate(-45deg);
+			}
+
+			.close-button::before,
+			.close-button::after {
+				content: '';
+				position: absolute;
+				width: 40px;
+				height: 4px;
+				background: var(--text);
+				transition: all 0.3s ease;
+			}
+
+			.close-button:hover::before,
+			.close-button:hover::after {
+				background: var(--accent);
+				box-shadow: 0 0 10px var(--accent);
+			}
+
+			.bubbles {
+				position: fixed;
+				width: 100%;
+				height: 100%;
+				z-index: -1;
+				overflow: hidden;
+			}
+
+			.bubble {
+				position: absolute;
+				border-radius: 50%;
+				background: linear-gradient(
+					45deg,
+					rgba(0, 229, 255, 0.3),
+					rgba(255, 217, 0, 0.2)
+				);
+				animation: float-bubble 8s infinite;
+				pointer-events: none;
+				box-shadow: 0 0 20px rgba(0, 229, 255, 0.4);
+			}
+
+			.features-section {
+				position: relative;
+				padding: 6rem 2rem;
+				min-height: 100vh;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				background: linear-gradient(rgba(0, 31, 63, 0.7), rgba(0, 31, 63, 0.7)),
+					url(https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?ixlib=rb-4.0.3)
+						center/cover;
+			}
+
+			.features-content {
+				max-width: 1000px;
+				background: #001f3f;
+				padding: 3rem;
+				border-radius: 20px;
+				backdrop-filter: blur(10px);
+			}
+
+			.features-title {
+				font-size: 3rem;
+				margin-bottom: 2rem;
+				text-align: center;
+				color: var(--accent);
+			}
+
+			.features-list {
+				list-style-type: none;
+				margin: 2rem 0;
+			}
+
+			.features-list li {
+				margin: 1rem 0;
+				padding-left: 2rem;
+				position: relative;
+				font-size: 1.8rem;
+			}
+
+			.features-list li::before {
+				content: '●';
+				color: var(--accent);
+				position: absolute;
+				left: 0;
+			}
+
+			.highlight {
+				color: var(--accent);
+				font-weight: 700;
+				font-size: 1.2em;
+				text-transform: uppercase;
+				letter-spacing: 2px;
+			}
+
+			.section-subtitle {
+				font-size: 2.3rem;
+				color: var(--secondary);
+				margin: 2rem 0 1rem;
+				text-align: center;
+			}
+			@keyframes float-bubble {
+				0% {
+					transform: translateY(100vh) scale(0) rotate(0);
+					opacity: 0;
+				}
+
+				50% {
+					opacity: 0.8;
+					transform: translateY(50vh) scale(1) rotate(180deg);
+				}
+
+				100% {
+					transform: translateY(-100px) scale(0.5) rotate(360deg);
+					opacity: 0;
+				}
+			}
+
+			.hero {
+				height: 100vh;
+				background: linear-gradient(rgba(0, 43, 86, 0.5), rgba(0, 43, 86, 0.5)),
+					url(https://images.unsplash.com/photo-1573843981267-be1999ff37cd?ixlib=rb-4.0.3);
+				background-size: cover;
+				background-position: center;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				text-align: center;
+				position: relative;
+			}
+
+			.hero::after {
+				content: '';
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				height: 150px;
+				background: linear-gradient(transparent, var(--primary));
+			}
+
+			.hero-content {
+				max-width: 900px;
+				padding: 3rem;
+				animation: fadeIn 2s ease-out;
+				background: rgba(0, 0, 0, 0.2);
+				backdrop-filter: blur(5px);
+				border-radius: 30px;
+				box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+				border: 1px solid var(--secondary);
+			}
+
+			.hero-content h1 {
+				font-size: 4.5rem;
+				margin-bottom: 1.5rem;
+				font-weight: 700;
+				font-family: 'Cormorant Garamond', serif;
+				letter-spacing: 2px;
+				background: linear-gradient(45deg, #f2e6d8, #9fd8e7, gold, #f2e6d8);
+				background-size: 300% 300%;
+				-webkit-background-clip: text;
+				color: transparent;
+				animation: gradient 8s ease infinite;
+			}
+
+			@keyframes gradient {
+				0% {
+					background-position: 0 50%;
+				}
+
+				50% {
+					background-position: 100% 50%;
+				}
+
+				100% {
+					background-position: 0 50%;
+				}
+			}
+
+			.hero-description {
+				font-size: 2.5rem;
+				font-weight: 500;
+				color: var(--button);
+				margin-top: 2rem;
+				font-family: Lora, serif;
+				line-height: 1.8;
+				padding-bottom: 20px;
+			}
+
+			@keyframes fadeIn {
+				from {
+					opacity: 0;
+					transform: translateY(30px);
+				}
+
+				to {
+					opacity: 1;
+					transform: translateY(0);
+				}
+			}
+
+			@keyframes titleGlow {
+				0% {
+					text-shadow: 0 0 10px #0fc, 0 0 20px #0fc;
+				}
+
+				50% {
+					text-shadow: 0 0 30px #ffd900, 0 0 40px #ffd900;
+				}
+
+				100% {
+					text-shadow: 0 0 20px #0fc, 0 0 30px #0fc;
+				}
+			}
+
+			.hero-subtitle {
+				font-size: 2.5rem;
+				font-style: italic;
+				font-weight: 600;
+				margin-top: 1rem;
+				color: var(--secondary);
+				text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+			}
+
+			@keyframes subtitlePulse {
+				0% {
+					opacity: 0.7;
+					transform: scale(1);
+				}
+
+				50% {
+					opacity: 1;
+					transform: scale(1.05);
+				}
+
+				100% {
+					opacity: 0.7;
+					transform: scale(1);
+				}
+			}
+
+			.experience-section,
+			.paradise-section {
+				padding: 6rem 2rem;
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 4rem;
+				max-width: 1400px;
+				margin: 0 auto;
+				align-items: center;
+				position: relative;
+			}
+
+			.experience-content,
+			.paradise-content {
+				padding: 2rem;
+				background: rgba(0, 43, 86, 0.4);
+				border-radius: 20px;
+				backdrop-filter: blur(10px);
+				box-shadow: 0 10px 30px rgba(0, 229, 255, 0.1);
+				transform: translateZ(0);
+				transition: all 0.5s ease;
+				border: 1px solid rgba(0, 229, 255, 0.2);
+				animation: contentFloat 6s ease-in-out infinite;
+			}
+
+			@keyframes contentFloat {
+				0% {
+					transform: translateY(0);
+				}
+
+				50% {
+					transform: translateY(-10px);
+				}
+
+				100% {
+					transform: translateY(0);
+				}
+			}
+
+			.experience-content:hover,
+			.paradise-content:hover {
+				transform: translateZ(20px) scale(1.02);
+				box-shadow: 0 15px 40px rgba(0, 229, 255, 0.3);
+				border: 1px solid rgba(0, 229, 255, 0.4);
+			}
+
+			.experience-content h2,
+			.paradise-content h2,
+			.right-side h2 {
+				font-size: 3rem;
+				margin-bottom: 2rem;
+				font-family: 'Cormorant Garamond', serif;
+				line-height: 1.2;
+				background: linear-gradient(45deg, var(--secondary), var(--accent));
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+				text-shadow: 0 0 10px #94f4ff;
+				animation: headingGlow 3s ease-in-out infinite;
+			}
+
+			@keyframes headingGlow {
+				0% {
+					text-shadow: 0 0 10px rgba(0, 229, 255, 0.3);
+				}
+
+				50% {
+					text-shadow: 0 0 20px rgba(0, 229, 255, 0.6);
+				}
+
+				100% {
+					text-shadow: 0 0 10px rgba(0, 229, 255, 0.3);
+				}
+			}
+
+			.maldives-image {
+				width: 100%;
+				border-radius: 20px;
+				transition: all 0.5s ease;
+			}
+
+			.experience-section p {
+				font-size: 1.5rem;
+				margin-bottom: 2rem;
+				color: var(--text);
+				text-shadow: 1px 1px 8px rgba(0, 229, 255, 0.3);
+				animation: textPulse 3s ease-in-out infinite;
+			}
+
+			@keyframes textPulse {
+				0% {
+					text-shadow: 1px 1px 8px rgba(0, 229, 255, 0.3);
+				}
+
+				50% {
+					text-shadow: 1px 1px 12px rgba(0, 229, 255, 0.5);
+				}
+
+				100% {
+					text-shadow: 1px 1px 8px rgba(0, 229, 255, 0.3);
+				}
+			}
+
+			.right-side {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				text-align: center;
+				background: rgba(0, 43, 86, 0.4);
+				justify-content: center;
+				padding: 2rem;
+				border-radius: 20px;
+				backdrop-filter: blur(10px);
+				border: 1px solid rgba(0, 229, 255, 0.2);
+				animation: rightSideFloat 7s ease-in-out infinite;
+			}
+
+			.right-side .maldives-image {
+				height: 100%;
+			}
+
+			@keyframes rightSideFloat {
+				0% {
+					transform: translateY(0) rotate(0);
+				}
+
+				50% {
+					transform: translateY(-15px) rotate(1deg);
+				}
+
+				100% {
+					transform: translateY(0) rotate(0);
+				}
+			}
+
+			.floating {
+				animation: float 6s ease-in-out infinite;
+			}
+
+			@keyframes float {
+				0% {
+					transform: translateY(0) rotate(0);
+				}
+
+				50% {
+					transform: translateY(-20px) rotate(2deg);
+				}
+
+				100% {
+					transform: translateY(0) rotate(0);
+				}
+			}
+
+			@keyframes pulse {
+				0% {
+					transform: scale(1);
+				}
+
+				50% {
+					transform: scale(1.2);
+				}
+
+				100% {
+					transform: scale(1);
+				}
+			}
+
+			@keyframes float {
+				0% {
+					transform: translateY(0) rotate(0);
+				}
+
+				50% {
+					transform: translateY(-20px) rotate(2deg);
+				}
+
+				100% {
+					transform: translateY(0) rotate(0);
+				}
+			}
+
+			.floating {
+				animation: float 6s ease-in-out infinite;
+			}
+
+			@media (max-width: 768px) {
+				.experience-section,
+				.features-list,
+				.paradise-section {
+					grid-template-columns: 1fr;
+					padding: 4rem 1rem;
+				}
+
+				.hero-content h1 {
+					font-size: 3rem;
+				}
+
+				.features-content {
+					padding: 2rem;
+				}
+
+				.experience-content h2,
+				.paradise-content h2 {
+					font-size: 3rem;
+				}
+
+				.features-column h3 {
+					font-size: 1.8rem;
+				}
+
+				.features-column li {
+					font-size: 1.1rem;
+				}
+			}
+
+			.experience-section,
+			.paradise-section,
+			.schedule-section {
+				padding: 6rem 2rem;
+				max-width: 1400px;
+				margin: 0 auto;
+				align-items: center;
+			}
+
+			.experience-content,
+			.paradise-content {
+				padding: 2rem;
+			}
+
+			.experience-content h2,
+			.paradise-content h2,
+			.right-side h2 {
+				font-size: 3rem;
+				margin-bottom: 2rem;
+				font-family: 'Cormorant Garamond', serif;
+				line-height: 1.2;
+			}
+
+			.paradise-content h2 {
+				text-align: center;
+			}
+
+			.schedule-section {
+				align-items: stretch;
+			}
+
+			.schedule-content {
+				background: linear-gradient(
+					145deg,
+					rgba(0, 188, 212, 0.1) 0,
+					rgba(0, 31, 63, 0.3) 100%
+				);
+				border-radius: 30px;
+				padding: 3rem;
+				box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+				backdrop-filter: blur(10px);
+				border: 1px solid rgba(255, 255, 255, 0.1);
+				transition: transform 0.3s ease;
+				height: 100%;
+			}
+
+			.schedule-content:hover {
+				transform: translateY(-5px);
+			}
+
+			.schedule-content h3 {
+				font-size: 3rem;
+				color: var(--accent);
+				margin-bottom: 2rem;
+				text-transform: uppercase;
+				letter-spacing: 3px;
+				text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+				font-family: 'Cormorant Garamond', serif;
+			}
+
+			.schedule-content ul {
+				list-style: none;
+			}
+
+			.schedule-content li,
+			.schedule-content p {
+				font-size: 2.2rem;
+				margin-bottom: 2.2rem;
+				padding-left: 2rem;
+				position: relative;
+				transition: transform 0.2s ease;
+			}
+
+			.schedule-content p {
+				margin-bottom: 10px;
+				padding-left: 0rem;
+			}
+
+			.schedule-content h3 {
+				text-align: center;
+			}
+
+			.schedule-content li:hover,
+			.schedule-content p {
+				transform: translateX(10px);
+			}
+
+			.schedule-content li:before {
+				content: '✦';
+				color: var(--accent);
+				position: absolute;
+				left: 0;
+				font-size: 2.3rem;
+			}
+
+			.maldives-image {
+				width: 100%;
+				border-radius: 20px;
+				transition: transform 0.5s ease;
+			}
+
+			.paradise-images .maldives-image {
+				object-fit: cover;
+			}
+
+			.maldives-image:hover {
+				transform: scale(1.05);
+			}
+
+			.experience-section p {
+				font-size: 2rem;
+				margin-bottom: 2rem;
+			}
+
+			.right-side {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				text-align: center;
+			}
+
+			.right-side h2 {
+				font-size: 4rem;
+				margin-bottom: 3rem;
+				color: var(--accent);
+			}
+
+			@keyframes float {
+				0% {
+					transform: translateY(0);
+				}
+
+				50% {
+					transform: translateY(-20px);
+				}
+
+				100% {
+					transform: translateY(0);
+				}
+			}
+
+			.floating {
+				animation: float 6s ease-in-out infinite;
+			}
+
+			.day-section,
+			.experience-section,
+			.paradise-section,
+			.schedule-section {
+				padding: 6rem 2rem;
+				max-width: 1400px;
+				margin: 0 auto;
+				align-items: center;
+			}
+
+			.day-two-content,
+			.experience-content,
+			.paradise-content,
+			.schedule-content {
+				padding: 2rem;
+			}
+
+			.day-two-content h2,
+			.experience-content h2,
+			.paradise-content h2,
+			.right-side h2,
+			.schedule-content h2 {
+				font-size: 3rem;
+				margin-bottom: 2rem;
+				font-family: 'Cormorant Garamond', serif;
+				line-height: 1.2;
+			}
+
+			.day-two-content,
+			.schedule-content {
+				background: rgba(0, 31, 63, 0.3);
+				border-radius: 20px;
+				padding: 2rem;
+			}
+
+			.day-two-content h3,
+			.schedule-content h3 {
+				font-size: 3rem;
+				color: var(--accent);
+				margin-bottom: 1.5rem;
+			}
+
+			.day-two-content ul,
+			.schedule-content ul {
+				list-style: none;
+			}
+
+			.three_days {
+				padding-top: 0;
+			}
+
+			.departure-content .farewell-text {
+				color: var(--accent);
+				font-style: italic;
+				margin-top: 1rem;
+				font-size: 2.5rem;
+			}
+
+			.departure-section {
+				background: linear-gradient(rgba(0, 31, 63, 0.7), rgba(0, 31, 63, 0.7)),
+					url(https://images.unsplash.com/photo-1512100356356-de1b84283e18?ixlib=rb-4.0.3);
+				font-size: cover;
+				background-size: cover;
+				background-position: center;
+				background-attachment: fixed;
+				padding: 8rem 2rem;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				position: relative;
+				max-width: 1300px;
+				margin: 0 auto;
+				margin-bottom: 6rem;
+				border-radius: 40px;
+			}
+
+			.departure-content h3 {
+				font-size: 3.5rem;
+				font-weight: 800;
+				text-align: center;
+			}
+
+			.departure-content p {
+				font-size: 2.5rem;
+				font-weight: 800;
+				text-align: center;
+			}
+
+			.pricing-section {
+				background: linear-gradient(rgba(0, 31, 63, 0.7), rgba(0, 31, 63, 0.7)),
+					url(https://images.unsplash.com/photo-1499063078284-f78f7d89616a?ixlib=rb-4.0.3);
+				background-size: cover;
+				background-position: center;
+				background-attachment: fixed;
+				padding: 4rem 2rem;
+				margin: 0 auto;
+				align-items: center;
+				grid-template-columns: 1fr 0.5fr;
+				max-width: 1300px;
+				border-radius: 40px;
+			}
+
+			.pricing-content {
+				padding: 2rem;
+				text-align: center;
+			}
+
+			.pricing-content h2 {
+				text-align: center;
+				font-size: 3rem;
+				margin-bottom: 1.5rem;
+				color: var(--accent);
+				text-align: center;
+			}
+
+			.pricing-content ul {
+				list-style: none;
+				font-size: 2.5rem;
+			}
+
+			.pricing-content li {
+				margin-bottom: 1rem;
+			}
+
+			.price-highlight {
+				color: var(--accent);
+				font-weight: 700;
+				font-size: 2.5rem;
+			}
+
+			.book-button {
+				display: inline-block;
+				padding: 1.5rem 3rem;
+				font-size: 1.7rem;
+				text-transform: uppercase;
+				background: 0 0;
+				color: var(--button);
+				text-decoration: none;
+				border: 4px solid var(--button);
+				border-radius: 3px;
+				transition: all 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+				font-weight: 1000;
+				letter-spacing: 2px;
+				position: relative;
+				overflow: hidden;
+				z-index: 1;
+			}
+
+			.book-button:before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 0%;
+				height: 100%;
+				background: var(--button);
+				transition: all 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+				z-index: -1;
+			}
+
+			.book-button:hover {
+				color: var(--primary);
+			}
+
+			.book-button:hover:before {
+				width: 100%;
+			}
+
+			.book-button:hover {
+				transform: translateY(-3px);
+				box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+				background: #ffe44d;
+			}
+
+			.combine-section {
+				padding: 6rem 2rem;
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 2rem;
+				max-width: 1400px;
+				margin: 0 auto;
+				align-items: center;
+			}
+
+			.combine-content {
+				padding: 2rem;
+			}
+
+			.combine-content h2 {
+				font-size: 3rem;
+				margin-bottom: 2rem;
+				font-family: 'Cormorant Garamond', serif;
+				line-height: 1.2;
+				color: #ffd900;
+			}
+
+			.bilet {
+				height: 90%;
+			}
+
+			.four-days,
+			.six_days,
+			.two-days {
+				padding-top: 0;
+				padding-bottom: 0;
+			}
+
+			.paradise-section {
+				padding: 6rem 2rem;
+				display: block;
+				max-width: 1400px;
+				margin: 0 auto;
+				align-items: center;
+			}
+
+			.slider-container {
+				position: relative;
+				overflow: hidden;
+				border-radius: 20px;
+				height: 600px;
+			}
+
+			.slider {
+				display: flex;
+				transition: transform 0.5s ease;
+			}
+
+			.slide {
+				min-width: 100%;
+				height: 600px;
+			}
+
+			.slide img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+
+			.slider-btn {
+				position: absolute;
+				top: 50%;
+				transform: translateY(-50%);
+				background: rgba(57, 67, 95, 0.212);
+				border: 0.1px solid var(--secondary);
+				padding: 1.5rem;
+				cursor: pointer;
+				border-radius: 50%;
+				transition: background 0.3s ease;
+				color: gold;
+				font-size: 1.5rem;
+			}
+
+			.slider-btn:hover {
+				background: rgba(255, 255, 255, 0.5);
+			}
+
+			.prev {
+				left: 20px;
+			}
+
+			.next {
+				right: 20px;
+			}
+
+			.contacts {
+				padding: 6rem 2rem;
+				text-align: center;
+				background: linear-gradient(rgba(0, 31, 63, 0.8), rgba(0, 31, 63, 0.8)),
+					url(https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-4.0.3);
+				background-size: cover;
+				background-position: center;
+			}
+
+			.social-links {
+				display: flex;
+				justify-content: center;
+				gap: 2rem;
+				margin: 3rem 0;
+			}
+
+			.social-link {
+				color: var(--text);
+				font-size: 2rem;
+				transition: color 0.3s ease;
+			}
+
+			.social-link:hover {
+				color: var(--accent);
+			}
+
+			.book-tour {
+				padding: 1rem 2rem;
+				font-size: 1.3rem;
+				background: var(--accent);
+				border: none;
+				border-radius: 30px;
+				color: var(--primary);
+				font-weight: 700;
+				cursor: pointer;
+				transition: transform 0.3s ease;
+				font-family: 'Playfair Display', serif;
+			}
+
+			.book-tour:hover {
+				transform: scale(1.05);
+			}
+
+			.slider-title {
+				font-size: 2rem;
+			}
+
+			.contact-btn {
+				position: fixed;
+				bottom: 40px;
+				right: 40px;
+				background: rgba(0, 188, 212, 0.8);
+				color: #fff;
+				padding: 15px 25px;
+				border-radius: 30px;
+				text-decoration: none;
+				font-size: 1.1rem;
+				transition: all 0.3s ease;
+				box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+				z-index: 100;
+			}
+
+			.contact-btn:hover {
+				transform: translateY(-5px);
+				background: rgba(0, 188, 212, 1);
+				box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+			}
+
+			@media (max-width: 820px) {
+				.hero-content h1 {
+					font-size: 3rem;
+					margin-bottom: 1rem;
+				}
+
+				.hero-subtitle {
+					font-size: 2rem;
+					margin-top: 1rem;
+				}
+
+				.hero-description {
+					font-size: 2rem;
+					margin-top: 1.5rem;
+					line-height: 1.6;
+				}
+
+				.combine-section {
+					display: block;
+				}
+
+				.combine-content {
+					text-align: center;
+				}
+
+				.combine-content .maldives-image {
+					display: none;
+				}
+			}
+
+			@media (max-width: 1024px) {
+				.day-section,
+				.experience-section,
+				.paradise-section,
+				.schedule-section {
+					display: block;
+					padding: 2rem 0;
+				}
+
+				.paradise-images {
+					display: none;
+				}
+
+				.day-two-content li,
+				.schedule-content li {
+					font-size: 2.1rem;
+					padding-left: 2rem;
+				}
+
+				.pricing-section {
+					padding: 6rem 1rem;
+					gap: 0;
+				}
+
+				.pricing-content {
+					padding: 0;
+				}
+
+				.pricing-content h2 {
+					font-size: 2.5rem;
+				}
+
+				.price-highlight {
+					font-size: 2rem;
+				}
+
+				.departure-content h3 {
+					font-size: 2.3rem;
+					margin-bottom: 1rem;
+				}
+
+				.departure-content p {
+					font-size: 2rem;
+				}
+
+				.departure-content .farewell-text {
+					font-size: 2rem;
+				}
+
+				.pricing-content ul {
+					font-size: 2rem;
+				}
+
+				.right-side {
+					max-height: 950px;
+				}
+
+				.close-button {
+					width: 40px;
+					height: 40px;
+				}
+				.close-button::before,
+				.close-button::after {
+					content: '';
+					width: 25px;
+					height: 2.5px;
+				}
+			}
+
+			@media (max-width: 768px) {
+				.day-two-content h3,
+				.schedule-content h3 {
+					font-size: 2.5rem;
+				}
+
+				.day-two-content li,
+				.schedule-content li {
+					font-size: 1.8rem;
+				}
+
+				.departure-content p {
+					font-size: 2rem;
+				}
+
+				.departure-content .farewell-text {
+					font-size: 1.8rem;
+				}
+
+				.features-title {
+					font-size: 2rem;
+					margin-bottom: 0;
+				}
+
+				.features-list {
+					padding: 0;
+				}
+
+				.section-subtitle {
+					font-size: 1.8rem;
+				}
+
+				.features-list {
+					margin: 0;
+				}
+
+				.pricing-section {
+					grid-template-columns: 1fr 0.8fr;
+				}
+
+				.pricing-content {
+					max-width: 300px;
+				}
+
+				.price-highlight {
+					font-size: 1.5rem;
+				}
+
+				.pricing-content li {
+					font-size: 1.8rem;
+				}
+
+				.right-side {
+					max-height: 700px;
+				}
+
+				.paradise-content h2 {
+					font-size: 2.5rem;
+				}
+			}
+
+			@media (max-width: 576px) {
+				.hero-content h1 {
+					font-size: 2.2rem;
+				}
+
+				.hero-subtitle {
+					font-size: 1.5rem;
+				}
+
+				.hero-description {
+					font-size: 1.5rem;
+				}
+
+				.paradise-content h2 {
+					font-size: 2rem;
+				}
+
+				.slider-container {
+					height: 450px;
+				}
+
+				.slider-btn {
+					font-size: 0.7rem;
+					padding: 1rem;
+				}
+
+				.experience-section p {
+					font-size: 1.5rem;
+				}
+
+				.features-section {
+					margin-bottom: 1rem;
+					padding: 2rem 2rem;
+				}
+
+				.features-title {
+					font-size: 1.5rem;
+				}
+
+				.features-list li {
+					margin: 0.7rem 0;
+					padding-left: 2rem;
+					position: relative;
+					font-size: 1.2rem;
+				}
+
+				.section-subtitle {
+					font-size: 1.5rem;
+				}
+
+				.schedule-content h3 {
+					font-size: 1.8rem;
+					margin-bottom: 0.7rem;
+				}
+
+				.schedule-content li .schedule-content p {
+					font-size: 1.4rem;
+					margin-bottom: 0.5rem;
+				}
+
+				.day-section,
+				.experience-section,
+				.paradise-section,
+				.schedule-section {
+					padding: 1rem 0;
+				}
+
+				.departure-section {
+					margin-bottom: 2rem;
+				}
+
+				.departure-content p {
+					font-size: 1.5rem;
+				}
+
+				.departure-content .farewell-text {
+					font-size: 1.4rem;
+				}
+
+				.seven_days {
+					margin-bottom: 1rem;
+				}
+
+				.combine-content h2 {
+					font-size: 2.2rem;
+					margin-bottom: 0.5rem;
+				}
+
+				.combine-section {
+					padding: 0;
+				}
+
+				.pricing-section {
+					display: block;
+				}
+
+				.pricing-content {
+					width: 100%;
+					max-width: 100%;
+				}
+
+				.pricing-section {
+					padding: 2rem 2rem;
+				}
+
+				.pricing-content h2 {
+					font-size: 2rem;
+					margin-bottom: 1.5rem;
+					text-align: center;
+				}
+				.pricing-content li {
+					font-size: 1.5rem;
+					margin-bottom: 0.4rem;
+				}
+				.bilet {
+					width: 55%;
+					height: 40%;
+					margin-top: 20px;
+				}
+				.right-side {
+					min-height: 600px;
+				}
+				.features-section {
+					padding: 2rem 2rem;
+				}
+				.day-section .schedule-content,
+				.schedule-section .schedule-content {
+					padding-bottom: 30px;
+				}
+				.departure-section {
+					padding: 3rem 2rem;
+				}
+				.contacts {
+					padding: 2rem 2rem;
+					border-radius: 20px 20px 0 0;
+				}
+				.schedule-content li,
+				.schedule-content p {
+					font-size: 1.5rem;
+					margin-bottom: 10px;
+				}
+				.schedule-content li:before {
+					font-size: 1.5rem;
+				}
+			}
+			@media (max-width: 400px) {
+				.bilet {
+					width: 100%;
+				}
+			}
+			.six-days,
+			.seven-days {
+				padding-top: 0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="bubbles" id="bubbles"></div>
+		<a
+			a
+			href="/index.htm"
+			onclick="loadPage('index.htm')"
+			class="close-button"
+			aria-label="Close"
+		>
+		</a>
+
+		<div class="hero">
+			<div class="hero-content">
+				<h1>English Tour. Maldives</h1>
+				<div class="hero-subtitle">by Viki's Globe Study</div>
+				<div class="hero-description">
+					Приглашаю вас окунуться в райский уголок и погрузиться в красивый
+					английский
+				</div>
+				<!-- <a href="https://wa.me/+79615369354" target="_blank" class="book-button">Забронировать поездку</a> -->
+			</div>
+		</div>
+		<section class="paradise-section">
+			<div class="paradise-content">
+				<h2>
+					Проведи время с наслаждением и пользой в самом райском месте планеты!
+				</h2>
+				<div class="slider-container">
+					<div class="slider">
+						<div class="slide">
+							<img src="site2/img/slider/0.jpg" alt="Maldives 1" />
+						</div>
+						<div class="slide">
+							<img src="site2/img/slider/1.jpg" alt="Maldives 2" />
+						</div>
+						<div class="slide">
+							<img src="site2/img/slider/3.jpg" alt="Maldives 4" />
+						</div>
+						<div class="slide">
+							<img src="site2/img/slider/4.jpg" alt="Maldives 5" />
+						</div>
+						<div class="slide">
+							<img src="site2/img/slider/6.jpg" alt="Maldives 7" />
+						</div>
+						<div class="slide">
+							<img src="site2/img/slider/7.jpg" alt="Maldives 8" />
+						</div>
+						<div class="slide">
+							<img src="site2/img/slider/8.jpg" alt="Maldives 9" />
+						</div>
+						<div class="slide">
+							<img src="site2/img/slider/11.jpg" alt="Maldives 12" />
+						</div>
+					</div>
+					<button class="slider-btn prev">
+						<i class="fas fa-chevron-left"></i>
+					</button>
+					<button class="slider-btn next">
+						<i class="fas fa-chevron-right"></i>
+					</button>
+				</div>
+			</div>
+		</section>
+
+		<section class="experience-section three_days">
+			<div class="experience-content">
+				<p>
+					Мы будем жить в комфортных сьютах, снорклить на острове, риф которого
+					входит в топ 10 лучших рифов Мальдив, поднимем уровень английского и
+					применим на практике.
+				</p>
+				<img
+					src="https://images.unsplash.com/photo-1546500840-ae38253aba9b?ixlib=rb-4.0.3"
+					alt="Snorkeling in Maldives"
+					class="maldives-image floating"
+				/>
+			</div>
+			<div class="right-side paradise-images">
+				<h2>English Tour. Maldives</h2>
+				<img
+					src="https://images.unsplash.com/photo-1578683010236-d716f9a3f461?ixlib=rb-4.0.3"
+					alt="Luxury Hotel Suite"
+					class="maldives-image"
+				/>
+			</div>
+		</section>
+		<section class="features-section">
+			<div class="features-content">
+				<h2 class="features-title">Отдых и английский в одном месте!</h2>
+				<ul class="features-list">
+					<li>отдых на пляже и снорклинг с акулами</li>
+					<li>прогулки и наполняющие энергией активности</li>
+					<li>приключения с черепашками и рыбалка на закате</li>
+					<li>прогулка на катамаране и фотосессия</li>
+					<li>мастер-класс по приготовлению блюда местной кухни</li>
+				</ul>
+
+				<h3 class="section-subtitle">
+					Качественный отдых и Интенсив по английскому:
+					<span class="highlight">перезагрузка</span>
+				</h3>
+				<ul class="features-list">
+					<li>английские завтраки и чаепития</li>
+					<li>утренние уроки английского на пляже</li>
+					<li>общение с единомышленниками в расслабленной обстановке</li>
+					<li>практика всех ситуаций с англоязычными гидами и местными</li>
+					<li>авторская книга с интересными и эффективными упражнениями</li>
+				</ul>
+			</div>
+		</section>
+		<section class="schedule-section one-days">
+			<div class="schedule-content one-days-content">
+				<h3>Первый день - начало удивительного приключения</h3>
+				<p>
+					Первый день — это начало вашего приключения, полного ярких эмоций,
+					новых впечатлений и английского языка, который оживает в каждой
+					ситуации.
+				</p>
+				<ul>
+					<li>Приветствие в аэропорту и знакомство с группой</li>
+					<li>Живописная дорога к месту отдыха, где начинается ваша история</li>
+					<li>Расслабляющий отдых и погружение в атмосферу острова</li>
+					<li>
+						Прогулка по острову, снорклинг в кристально чистой воде и живое
+						общение
+					</li>
+					<li>Ужин в уютной атмосфере с практикой английского</li>
+					<li>Вечерняя медитация под звездами и дружеские разговоры</li>
+				</ul>
+			</div>
+		</section>
+		<section class="day-section two-days">
+			<div class="schedule-content two-days-content">
+				<h3>Второй день: язык, природа и вдохновение</h3>
+				<p>
+					Ваш второй день наполнен моментами, которые совмещают погружение в
+					английский, исследование острова и истинный релакс. Здесь каждый шаг —
+					это шаг к новым открытиям.
+				</p>
+				<ul>
+					<li>Ароматный английский завтрак и утренний настрой на день</li>
+					<li>
+						Занятие по разговорному английскому в легкой и увлекательной форме
+					</li>
+					<li>
+						Открытие местной культуры: экскурсия по острову, живое общение и
+						практика языка
+					</li>
+					<li>Свежий обед, чтобы продолжить день с энергией</li>
+					<li>Погружение в подводный мир во время снорклинга</li>
+					<li>
+						Восстановление тела и души: тренировка и медитация на английском
+					</li>
+					<li>Вечерний ужин с друзьями и новыми английскими фразами</li>
+					<li>Теплое завершение дня: общение, смех и воспоминания</li>
+				</ul>
+			</div>
+		</section>
+
+		<section class="day-section three-days">
+			<div class="schedule-content three-days-content">
+				<h3>Третий день: расслабление и общение</h3>
+				<p>
+					Третий день — это возможность насладиться природой, укрепить знания
+					английского и отдохнуть в своем темпе, наполняя день яркими эмоциями и
+					впечатлениями.
+				</p>
+				<ul>
+					<li>Уютный завтрак с английским настроением</li>
+					<li>
+						Расслабляющая медитация, которая помогает погрузиться в язык и
+						гармонию
+					</li>
+					<li>
+						Увлекательное занятие по английскому с акцентом на легкость общения
+					</li>
+					<li>Морская рыбалка: приключение для души и тела</li>
+					<li>Обед в кафе с национальными блюдами и языковой практикой</li>
+					<li>Время для себя: снорклинг у местного рифа или просто отдых</li>
+					<li>
+						Дружеская разговорная практика на английском: делимся эмоциями
+					</li>
+					<li>Вечерний ужин с атмосферой тепла и новых открытий</li>
+					<li>
+						Теплое завершение дня: подведение итогов, улыбки и приятное общение
+					</li>
+				</ul>
+			</div>
+		</section>
+		<section class="day-section four-days">
+			<div class="schedule-content four-days-content">
+				<h3>Четвертый день: гармония и наслаждение</h3>
+				<p>
+					В этот день мы заботимся о теле и душе: отдых, вдохновение и легкость
+					общения на английском станут вашими спутниками.
+				</p>
+				<ul>
+					<li>Утренний фитнес и омовение океаном для бодрости и энергии</li>
+					<li>Вкусный английский завтрак в расслабленной атмосфере</li>
+					<li>
+						Свободное время: побалуйте себя спа-процедурами или расслабьтесь на
+						пляже
+					</li>
+					<li>Сытный обед в кафе с возможностью общения на английском</li>
+					<li>Погружение в красоту подводного мира: снорклинг у рифа</li>
+					<li>
+						Дружеская разговорная практика: английский через живое общение
+					</li>
+					<li>
+						Уютный ужин с новой порцией английских фраз и хорошего настроения
+					</li>
+					<li>
+						Вечерний отдых: делимся впечатлениями, улыбаемся и подводим итоги
+						дня
+					</li>
+				</ul>
+			</div>
+		</section>
+		<section class="day-section five-days">
+			<div class="schedule-content five-days-content">
+				<h3>Пятый день: ещё один шаг к совершенству</h3>
+				<p>
+					Пятый день подарит гармонию, незабываемые моменты и возможность ещё
+					раз насладиться английским языком в легкой и увлекательной форме.
+				</p>
+				<ul class="schedule-list">
+					<li>Вкусный завтрак с приятной беседой</li>
+					<li>Утренняя медитация для гармонии тела и разума</li>
+					<li>Легкое и увлекательное занятие по английскому</li>
+					<li>Атмосферное чаепитие с разговорной практикой</li>
+					<li>Свободное время: снорклинг или отдых на пляже</li>
+					<li>Обед в кафе с вкусной кухней и живым общением</li>
+					<li>Прогулка на катамаране с фотосессией и рилс-съемкой</li>
+					<li>Завершающий ужин с практикой английских фраз</li>
+					<li>Вечер теплых воспоминаний и общения под звездами</li>
+				</ul>
+			</div>
+		</section>
+
+		<section class="day-section six-days">
+			<div class="schedule-content six-days-content">
+				<h3>Шестой день: вкусы, гармония и яркие впечатления</h3>
+				<p>
+					Шестой день программы — это сочетание ярких впечатлений, погружения в
+					культуру и еще одна возможность насладиться английским в теплой и
+					дружеской атмосфере.
+				</p>
+				<ul class="schedule-list">
+					<li>Английский завтрак и настрой на день</li>
+					<li>Утренняя медитация для гармонии и концентрации</li>
+					<li>Занятие по английскому с практическими упражнениями</li>
+					<li>Мастер-класс: готовим традиционные мальдивские блюда</li>
+					<li>Обед в кругу друзей с легким общением</li>
+					<li>Свободное время для отдыха или прогулок</li>
+					<li>Расслабляющая йога-практика и медитация на английском</li>
+					<li>Ужин с практикой английских фраз</li>
+					<li>Теплое неформальное общение</li>
+				</ul>
+			</div>
+		</section>
+		<section class="day-section seven-days">
+			<div class="schedule-content seven-days-content">
+				<h3>Седьмой день: яркие моменты и новые впечатления</h3>
+				<p>
+					Седьмой день программы — время для отдыха, общения и новых открытий,
+					чтобы продолжить наслаждаться атмосферой путешествия и практикой
+					английского языка.
+				</p>
+				<ul class="schedule-list">
+					<li>Утренняя йога на английском для бодрости и гармонии</li>
+					<li>Неспешный завтрак с теплым общением</li>
+					<li>
+						Посещение местных рынков: покупка фруктов и разговорная практика
+					</li>
+					<li>Обед в уютном кафе с обсуждением новых впечатлений</li>
+					<li>Свободное время для прогулок или отдыха</li>
+					<li>Разговорная практика на английском с новыми темами</li>
+					<li>Ужин с практикой английских фраз и обменом впечатлениями</li>
+					<li>Неформальное общение и обсуждение пройденного дня</li>
+				</ul>
+			</div>
+		</section>
+
+		<section class="departure-section">
+			<div class="departure-content schedule-content">
+				<h3>Восьмой день: свободный день и отъезд</h3>
+				<p>
+					Свободное утро для спокойного отдыха, прогулки по пляжу или последних
+					покупок на память.
+				</p>
+				<p class="farewell-text">
+					Пора попрощаться с райским островом, но вы увозите с собой
+					незабываемые впечатления, новые знания, уверенность в английском и
+					теплые воспоминания, которые останутся с вами надолго.
+				</p>
+			</div>
+		</section>
+		<section class="pricing-section">
+			<div class="pricing-content">
+				<h2>Стоимость</h2>
+				<ul>
+					<li class="price-highlight">При раннем бронировании: 1870$</li>
+					<li class="price-highlight">После 31 декабря: 1970$</li>
+					<li>Доп расходы:</li>
+					<li>- Авиаперелет</li>
+					<li>- Обед и ужин</li>
+					<li>- Медицинская страховка</li>
+				</ul>
+			</div>
+		</section>
+		<section class="combine-section">
+			<div class="combine-content">
+				<h2>
+					Совмести то, что ты любишь – райский отдых и нескучный English!!!
+				</h2>
+				<img
+					src="https://images.unsplash.com/photo-1506953823976-52e1fdc0149a?ixlib=rb-4.0.3"
+					alt="Beautiful Sunset Beach"
+					class="maldives-image"
+				/>
+			</div>
+			<div class="right-side">
+				<img
+					src="site2/img/vika.jpg"
+					alt="Tour Organizer"
+					class="maldives-image"
+				/>
+			</div>
+		</section>
+		<section id="contacts" class="contacts">
+			<h2 class="slider-title">Свяжитесь с нами</h2>
+			<div class="social-links">
+				<a
+					href="https://vk.com/viki_pro_english"
+					class="social-link"
+					target="_blank"
+					><i class="fab fa-vk"></i
+				></a>
+				<a href="https://wa.me/+79615369354" class="social-link" target="_blank"
+					><i class="fab fa-whatsapp"></i
+				></a>
+				<a
+					href="https://t.me/viki_pro_english"
+					class="social-link"
+					target="_blank"
+					><i class="fab fa-telegram"></i
+				></a>
+			</div>
+		</section>
+
+		<script src="/site2/script.js"></script>
+	</body>
+</html>
